@@ -3,9 +3,9 @@
     create an image block with very minimal settings. No styles
 
 {% enddoc %}
-{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+{% assign image_id = block.id | replace: '_', '' | downcase %}
 
-<div class="ai-simple-image-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+<div class="ai-simple-image-{{ image_id }}" {{ block.shopify_attributes }}>
   {% if block.settings.image != blank %}
     <img 
       src="{{ block.settings.image | image_url: width: 2000 }}" 
@@ -15,7 +15,7 @@
       height="{{ block.settings.image.height }}"
     >
   {% else %}
-    <div class="ai-simple-image-placeholder-{{ ai_gen_id }}">
+    <div class="ai-simple-image-placeholder-{{ image_id }}">
       {{ 'image' | placeholder_svg_tag }}
     </div>
   {% endif %}
