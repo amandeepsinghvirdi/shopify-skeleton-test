@@ -1,0 +1,61 @@
+{% doc %}
+  @prompt
+    create an image block with very minimal settings. No styles
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+<div class="ai-simple-image-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  {% if block.settings.image != blank %}
+    <img 
+      src="{{ block.settings.image | image_url: width: 2000 }}" 
+      alt="{{ block.settings.image.alt | escape }}"
+      loading="lazy"
+      width="{{ block.settings.image.width }}"
+      height="{{ block.settings.image.height }}"
+    >
+  {% else %}
+    <div class="ai-simple-image-placeholder-{{ ai_gen_id }}">
+      {{ 'image' | placeholder_svg_tag }}
+    </div>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Simple Image",
+  "tag": null,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Image alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Simple Image"
+    }
+  ]
+}
+{% endschema %}
