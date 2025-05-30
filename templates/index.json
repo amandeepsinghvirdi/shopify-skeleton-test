@@ -12,9 +12,28 @@
     "main": {
       "type": "hello-world",
       "settings": {}
+    },
+    "custom_section_4DmarH": {
+      "type": "custom-section",
+      "blocks": {
+        "ai_gen_block_60b44a1_z4yHjm": {
+          "type": "ai_gen_block_60b44a1",
+          "settings": {
+            "image": "shopify://shop_images/Main_9129b69a-0c7b-4f66-b6cf-c4222f18028a.jpg",
+            "alignment": "right"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_60b44a1_z4yHjm"
+      ],
+      "name": "t:general.custom_section",
+      "settings": {}
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_section_4DmarH"
   ]
 }
